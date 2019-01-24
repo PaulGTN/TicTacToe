@@ -1,6 +1,5 @@
 #LIAISON AVEC LE BOARD
 $:.unshift File.expand_path("/home/paul/Documents/week3/TicTacToe/lib/app/", __FILE__)
-
 require 'board'
 
 class Boardcase
@@ -13,4 +12,3 @@ class Boardcase
     	@symbole = symbole
     end
 end
-
