@@ -15,8 +15,8 @@ class BoardCase
     @c2 = " "
     @c3 = " "
 
-
-   
   end
   
 end
+
+BoardCase.new

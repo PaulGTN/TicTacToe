@@ -1,23 +1,18 @@
 require 'player'
-require 'boardcases'
+require 'boardcase'
 
 class Board
   #TO DO : la classe a 1 attr_accessor : un array/hash qui contient les BoardCases.
   #Optionnellement on peut aussi lui rajouter un autre sous le nom @count_turn pour compter le nombre de coups joué
-  attr_accessor :[BoardCases]
+  attr_accessor :@BoardCase
 
   def initialize
     #TO DO :
     #Quand la classe s'initialize, elle doit créer 9 instances BoardCases
-    @a1 = " "
-    @a2 = " "
-    @a3 = " "
-    @b1 = " "
-    @b2 = " "
-    @b3 = " "
-    @c1 = " "
-    @c2 = " "
-    @c3 = " "
+    @boardcase = []
+    9.times do |i|
+      @boardcase << i + 1
+    end
     #Ces instances sont rangées dans un array/hash qui est l'attr_accessor de la classe
     hash_boardcases = [@a1, @a2, @a3, @b1, @b2, @b3, @c1, @c2, @c3]
     #TO DO : doit régler sa valeur, ainsi que son numéro de case
@@ -42,18 +37,20 @@ class Board
     player1_choice = gets.chomp
     player1_choice_hash.each do |choice, hash_boardcases| 
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
-    if player1_choice == " " do
-      player_choice_hash = "#{@player1_token}"
-      print_board
+    if player1_choice == choice && hash_boardcases == " "
+      hash_boardcases.sub! (" ", "#{@player1_token}")
+      #player_choice_hash = "#{@player1_token}"
+      #print_board
     else puts "Cette case est déjà prise"
 
     puts "#{@player1_name} choisis ta case"
     player2_choice = gets.chomp
     player_choice_hash.each do |choice, hash_boardcases| 
     #2) change la BoardCase jouée en fonction de la valeur du joueur (X ou O)
-    if player2_choice == " " do
-      player_choice_hash = "#{@player2_token}"
-      print_board
+    if player2_choice == choice && hash_boardcases == " "
+      hash_boardcases.sub! (" ", "#{@player1_token}")
+      #player_choice_hash = "#{@player2_token}"
+      #print_board
     else puts "Cette case est déjà prise"
     end
     end
@@ -78,11 +75,11 @@ class Board
 
     winning_lines.each do |check|
       if check == x_win || check == o_win
-        victory? = true
+        victory? == true
       end
     end
-    if @turn >=9
-      draw = true
-    end
+    #if @turn >=9
+    #  draw = true
+    #end
   end
 end 
