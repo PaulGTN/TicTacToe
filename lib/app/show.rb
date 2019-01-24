@@ -1,18 +1,30 @@
-require 'board'
-require 'boardcase'
+#require 'board'
+#require 'boardcase'
 
 class Show
 
-  def show_board(board)
-    #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
-    
-    puts "   1 | 2 | 3"
-    puts "A  #{@a1} | #{@a2} | #{@a3} "
-    puts "  ---|---|---"
-    puts "B  #{@b1} | #{@b2} | #{@b3} "
-    puts "  ---|---|---"
-    puts "C  #{@c1} | #{@c2} | #{@c3} "
-    
-  end
+	#Affiche la ditribution des symboles au début du jeu
+	def initialize(player1, player2)
+		puts "#{player1} tu as le symbole X"
+	  puts "#{player2} tu as le symbole O"     
+	end
+
+
+	#affiche l'échiquier en puisant à chaque coup dans le tableau du Board. 
+	#Permet d'afficher le symbole dynamiquement
+	def show_board(array_case)
+		puts "|  #{array_case[0].symbole}  |  #{array_case[1].symbole}  |  #{array_case[2].symbole}  |"
+		puts "-" * 22
+		puts "|  #{array_case[3].symbole}  |  #{array_case[4].symbole}  |  #{array_case[5].symbole}  |"
+		puts "-" * 22
+		puts "|  #{array_case[6].symbole}  |  #{array_case[7].symbole}  |  #{array_case[8].symbole}  |"
+		print "> "
+	end
+
+	#En cas de réponse éronnés de l'utilisateur, on affiche ce message
+	def check_choice
+		puts "Cette case est déjà prise espèce d'aveugle !"
+		print ">"
+	end
 
 end

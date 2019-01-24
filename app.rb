@@ -1,11 +1,6 @@
-class Application
-  def perform
-    # TO DO : méthode qui initialise le jeu puis contient des boucles while pour faire tourner le jeu tant que la partie n'est pas terminée.
-    # 
+#LIAISON AVEC L'APPLICATION
+$:.unshift File.expand_path("/home/paul/Documents/week3/TicTacToe/lib/app/", __FILE__)
 
-  end
-
-end
-
+require 'applications'
 
 Application.new.perform

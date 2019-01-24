@@ -1,22 +1,16 @@
-class BoardCase
-  #TO DO : la classe a 2 attr_accessor, sa valeur en string (X, O, ou vide), ainsi que son identifiant de case
-  attr_accessor :value 
-  attr_accessor :case_def
-  
-  def initialize
-     #TO DO : doit régler sa valeur, ainsi que son numéro de case
-    @a1 = " "
-    @a2 = " "
-    @a3 = " "
-    @b1 = " "
-    @b2 = " "
-    @b3 = " "
-    @c1 = " "
-    @c2 = " "
-    @c3 = " "
+#LIAISON AVEC LE BOARD
+$:.unshift File.expand_path("/home/paul/Documents/week3/TicTacToe/lib/app/", __FILE__)
 
-  end
-  
+require 'board'
+
+class Boardcase
+
+	attr_accessor :position, :symbole
+
+	#Une case a une position et un symbole 
+    def initialize(position, symbole)
+    	@position = position
+    	@symbole = symbole
+    end
 end
 
-BoardCase.new
